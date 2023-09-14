@@ -1,0 +1,2 @@
+#!/bin/sh
+artiq_client scan-repository
