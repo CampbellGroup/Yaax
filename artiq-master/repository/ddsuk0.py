@@ -15,7 +15,8 @@ class DDSChannels(EnvExperiment):
 
         #User imputs for frequency, amplitude and attenuation                                                   
         self.setattr_argument("freq0", NumberValue(ndecimals = 7,type="float", unit="MHz"))  
-        self.setattr_argument("amp0", NumberValue(ndecimals = 7,type="float", max = 0.32 ))  
+        #self.setattr_argument("amp0", NumberValue(ndecimals = 7,type="float", max = 0.32 )) # Max for the Brimrose AOM
+        self.setattr_argument("amp0", NumberValue(ndecimals = 7,type="float", max = 0.38 )) #Max amplitude for the G&H AOM
         self.setattr_argument("attenuation0", NumberValue(type="float"))                     
         self.setattr_argument("freq1", NumberValue(ndecimals = 7,type="float", unit="MHz"))  
         self.setattr_argument("amp1", NumberValue(ndecimals = 7,type="float" ))              

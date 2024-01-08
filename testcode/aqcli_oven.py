@@ -2,9 +2,9 @@ from sipyco.pc_rpc import Client
 
 
 def main():
-    remote = Client("::1", 443, "oven")
+    remote = Client("::1", 541, "oven")
     try:
-        remote.command('Syst:loc')
+        remote.command('OUTP 0')
     finally:
         remote.close_rpc()
 

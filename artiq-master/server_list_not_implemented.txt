@@ -1,0 +1,7 @@
+device_db["hello"] = {
+     "type": "controller",
+     "host": "::1",
+     "port": 443,
+     "command": " python D:/Yaax/artiq-master/repository/aqctl_hello.py -p {port}"
+}
+

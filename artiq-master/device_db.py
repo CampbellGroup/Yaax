@@ -699,10 +699,10 @@ device_db["led1"] = {
     "arguments": {"channel": 0x000034}
 }
 
-device_db["hello"] = {
+device_db["oven"] = {
      "type": "controller",
      "host": "::1",
-     "port": 443,
-     "command": " python D:/Yaax/artiq-master/repository/aqctl_hello.py -p {port}"
+     "port": 499,
+     "command": " python D:/Yaax/artiq-master/repository/servers/aqctl_oven.py -p {port}"
 }
 

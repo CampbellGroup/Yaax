@@ -28,7 +28,7 @@ class ReadPMT(EnvExperiment):
 
             delay(1*us)                               
             counts = self.ttl0.count(self.ttl0.gate_rising(tint))             #collects counts during 'tint', and then offloads them into 'counts'
-            print("counts: ", counts)  
+            #print("counts: ", counts)  
             delay(1*ms)                         
 
-            self.append_to_dataset("pmt_counts", counts)         #saves counts
+            self.append_to_dataset("pmt_counts", counts/tint)         #saves counts
