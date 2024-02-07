@@ -1,17 +1,8 @@
-from artiq.experiment import Experiment
-from artiq.experiment import* 
-from base.base_start import*
+from artiq.experiment import *
 
 
-class YaaxExperiment(Experiment, YaaxStart):
-       
-    def build(self):
-        super().build()
-        self._build_components()
-        self.build_exp()
-
-    """
-    #This class starts all of the "science" components
+class YaaxStart():
+#This class starts all of the "science" components
     def _build_components(self):
         self.setattr_device("core")
         
@@ -24,6 +15,8 @@ class YaaxExperiment(Experiment, YaaxStart):
         #Place ttls here 
         self.setattr_device("ttl0")  #PMT TTL
         
+        
+
     @kernel
     def _initialize(self):
         self.core.reset() 
@@ -35,15 +28,3 @@ class YaaxExperiment(Experiment, YaaxStart):
         # Set TTLS
         self.ttl0.input()
         #print("devices are on")
-    """
-    
-     #This is class will get over written by the experiment
-    def build_exp(self):
-
-        '''User accessible function'''
-
-        pass 
-
-    def prepare(self):
-        delattr(Experiment, "prepare")
-        super().prepare()
