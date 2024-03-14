@@ -27,11 +27,11 @@ class Example2(base.base_experiment.YaaxExperiment, YaaxEnvironment):
         self.sequence1 = cooling_seqs(self)
 
         self.detuned369 = self.freq369 - self.detuning369
-        self.freq935 = 80*MHz
+        self.freq935 = 200*MHz
        
 
     @kernel 
     def run(self):
         self.core.reset()
-        self.sequence1.dopplercool(self.detuned369,self.amp369, self.freq935, self.amp935, self.ion)
+        self.sequence1.dopplercool(self.detuned369,self.amp369, self.freq935, self.amp935)
         
