@@ -4,9 +4,9 @@ import pyvisa as visa
 class Oven:
     def __init__(self):
         self.rm = visa.ResourceManager('C:\\WINDOWS\\system32\\visa32.dll')
-        self.prt = 'ASRL10::INSTR'
+        self.prt = 'ASRL11::INSTR'
         self.inst = self.rm.open_resource(self.prt)
-        self.inst.write('SYST:REM')
+        #self.inst.write('SYST:REM')
 
     def command(self, cmd):
         self.inst.write(cmd)

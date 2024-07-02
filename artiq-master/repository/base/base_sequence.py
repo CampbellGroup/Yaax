@@ -2,17 +2,19 @@ import numpy as np
 from artiq.experiment import *
 from base.base_environment import YaaxEnvironment
 
+from base.base_start import*
 
 
-class YaaxSequence(YaaxEnvironment):
+
+class YaaxSequence(YaaxEnvironment,YaaxStart):
     
     def build(self):
-        #Set up attributes
-        self.setattr_device("core")
-        self.build_components()
+        super().build()
+        self._build_components()
+        self.build_seq()
 
-    def build_components():
-        pass 
+    def build_seq(self):
+        pass
     
     @kernel 
     def run(self):
