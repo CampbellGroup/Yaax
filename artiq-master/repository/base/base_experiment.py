@@ -9,7 +9,7 @@ class YaaxExperiment(Experiment, YaaxStart):
         super().build()
         self._build_components()
         self.build_exp()
-    
+
      #This is class will get over written by the experiment
     def build_exp(self):
 

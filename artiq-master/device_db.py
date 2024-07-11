@@ -46,7 +46,7 @@ device_db = {
     },
 }
 
-# standalone peripherals
+# master peripherals
 
 device_db["ttl0"] = {
     "type": "local",
@@ -684,25 +684,103 @@ device_db["zotino0"] = {
         "clr_device": "ttl_zotino0_clr"
     }
 }
+# DEST#1 peripherals
 
-device_db["led0"] = {
+device_db["spi_mirny0"]={
+    "type": "local",
+    "module": "artiq.coredevice.spi2",
+    "class": "SPIMaster",
+    "arguments": {"channel": 0x010000}
+}
+
+device_db["ttl_mirny0_sw0"] = {
     "type": "local",
     "module": "artiq.coredevice.ttl",
     "class": "TTLOut",
-    "arguments": {"channel": 0x000033}
+    "arguments": {"channel": 0x010001}
 }
 
-device_db["led1"] = {
+device_db["ttl_mirny0_sw1"] = {
     "type": "local",
     "module": "artiq.coredevice.ttl",
     "class": "TTLOut",
-    "arguments": {"channel": 0x000034}
+    "arguments": {"channel": 0x010002}
 }
 
-device_db["oven"] = {
-     "type": "controller",
-     "host": "::1",
-     "port": 499,
-     "command": " python D:/Yaax/artiq-master/repository/servers/aqctl_oven.py -p {port}"
+device_db["ttl_mirny0_sw2"] = {
+    "type": "local",
+    "module": "artiq.coredevice.ttl",
+    "class": "TTLOut",
+    "arguments": {"channel": 0x010003}
 }
 
+device_db["ttl_mirny0_sw3"] = {
+    "type": "local",
+    "module": "artiq.coredevice.ttl",
+    "class": "TTLOut",
+    "arguments": {"channel": 0x010004}
+}
+
+device_db["mirny0_ch0"] = {
+    "type": "local",
+    "module": "artiq.coredevice.adf5356",
+    "class": "ADF5356",
+    "arguments": {
+        "channel": 0,
+        "sw_device": "ttl_mirny0_sw0",
+        "cpld_device": "mirny0_cpld",
+    }
+}
+
+device_db["mirny0_ch1"] = {
+    "type": "local",
+    "module": "artiq.coredevice.adf5356",
+    "class": "ADF5356",
+    "arguments": {
+        "channel": 1,
+        "sw_device": "ttl_mirny0_sw1",
+        "cpld_device": "mirny0_cpld",
+    }
+}
+
+device_db["mirny0_ch2"] = {
+    "type": "local",
+    "module": "artiq.coredevice.adf5356",
+    "class": "ADF5356",
+    "arguments": {
+        "channel": 2,
+        "sw_device": "ttl_mirny0_sw2",
+        "cpld_device": "mirny0_cpld",
+    }
+}
+
+device_db["mirny0_ch3"] = {
+    "type": "local",
+    "module": "artiq.coredevice.adf5356",
+    "class": "ADF5356",
+    "arguments": {
+        "channel": 3,
+        "sw_device": "ttl_mirny0_sw3",
+        "cpld_device": "mirny0_cpld",
+    }
+}
+
+device_db["mirny0_cpld"] = {
+    "type": "local",
+    "module": "artiq.coredevice.mirny",
+    "class": "Mirny",
+    "arguments": {
+        "spi_device": "spi_mirny0",
+        "refclk": 100000000.0,
+        "clk_sel": 0
+    },
+}
+
+device_db["mirny0_almazny"] = {
+    "type": "local",
+    "module": "artiq.coredevice.mirny",
+    "class": "Almazny",
+    "arguments": {
+        "host_mirny": "mirny0_cpld",
+    },
+}

@@ -35,9 +35,6 @@ class cooling_seqs(base.base_experiment.YaaxExperiment, YaaxEnvironment):
     def dopplercool(self,detuned369,amp369,freq935,amp935):    
         self._initialize()   
         self.core.break_realtime()
-        ''' self.aom369dp.set(freq = detuned369, amp = amp369)
-        self.aom935.set(freq = freq935, amp = amp935)
-        self.core.break_realtime() '''
 
         with parallel:
             self.aom369dp.set(freq = detuned369, amp = amp369)

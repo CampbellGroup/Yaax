@@ -17,12 +17,13 @@ class YaaxStart():
         #Place ttls here 
         self.setattr_device("ttl0")  #PMT TTL
 
-        '''
+        
         #Place all Mirnies here 
-        #self.setattr_device("mirny0_ch0")
+        self.setattr_device("mirny0_ch0")
         self.setattr_device("mirny0_ch1")
+        self.setattr_device("mirny0_ch2")
         self.setattr_device("mirny0_almazny") 
-        '''
+        
 
     @kernel
     def _initialize(self):
@@ -38,11 +39,13 @@ class YaaxStart():
 
         #Initialize all the science TTLS
         self.ttl0.input()
-        '''
+        
         #Initializa all the Mirnies 
         self.mirny0_ch0.cpld.init()
         self.mirny0_ch0.init()   
         self.mirny0_ch1.cpld.init()
-        self.mirny0_ch1.init()   
-        '''
+        self.mirny0_ch1.init()
+        self.mirny0_ch2.cpld.init()
+        self.mirny0_ch2.init()   
+        
         #print("devices are on")

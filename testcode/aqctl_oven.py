@@ -4,7 +4,7 @@ import pyvisa as visa
 class OvenControl():
     def command(self, cmd):
         rm = visa.ResourceManager('C:\\WINDOWS\\system32\\visa32.dll')
-        prt = 'ASRL10::INSTR'
+        prt = 'ASRL11::INSTR'
         inst = rm.open_resource(prt)
         inst.write('SYST:REM')
         inst.write('APP: CURR 7')
